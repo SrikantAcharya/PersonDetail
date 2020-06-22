@@ -13,10 +13,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 
 import com.persondetails.domain.Address;
-import com.persondetails.domain.AddressTest;
 import com.persondetails.domain.Person;
 import com.persondetails.repository.AddressRepository;
 import com.persondetails.repository.PersonRepositiry;
@@ -113,7 +111,6 @@ public class AddressCRUDControllerTest {
 		assertThat(addressNew.getState()).isEqualTo("telangana");
 		assertThat(addressNew.getPostalcode()).isEqualTo(500051);
 
-		EqualsVerifier.forClass(AddressCRUDController.class).withRedefinedSuperclass()
-				.suppress(Warning.STRICT_INHERITANCE).suppress(Warning.NONFINAL_FIELDS).verify();
+		
 	}
 }

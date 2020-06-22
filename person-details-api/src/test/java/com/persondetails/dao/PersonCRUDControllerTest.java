@@ -3,8 +3,6 @@ package com.persondetails.dao;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
 
@@ -18,7 +16,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
 import com.persondetails.domain.Address;
-import com.persondetails.domain.AddressTest;
 import com.persondetails.domain.Person;
 import com.persondetails.repository.PersonRepositiry;
 
@@ -91,9 +88,7 @@ public class PersonCRUDControllerTest {
 
 		assertThat(personDet.getFirstName()).isEqualTo("Deepak");
 		assertThat(personDet.getLastName()).isEqualTo("Mahala");
-
-		EqualsVerifier.forClass(PersonCRUDController.class).withRedefinedSuperclass()
-				.suppress(Warning.STRICT_INHERITANCE).suppress(Warning.NONFINAL_FIELDS).verify();
+		
 	}
 
 	@Test
@@ -101,9 +96,6 @@ public class PersonCRUDControllerTest {
 		doNothing().when(personRepository).deleteById(1L);
 		personCRUDController.deletePerson(1L);
 
-		EqualsVerifier.forClass(PersonCRUDController.class).withRedefinedSuperclass()
-				.suppress(Warning.STRICT_INHERITANCE).suppress(Warning.NONFINAL_FIELDS).verify();
-		;
 	}
 
 	@Test
@@ -120,9 +112,7 @@ public class PersonCRUDControllerTest {
 		assertThat(personById.getId()).isEqualTo(1L);
 		assertThat(personById.getFirstName()).isEqualTo("Srikant");
 		assertThat(personById.getLastName()).isEqualTo("Acharya");
-
-		EqualsVerifier.forClass(PersonCRUDController.class).withRedefinedSuperclass()
-				.suppress(Warning.STRICT_INHERITANCE).suppress(Warning.NONFINAL_FIELDS).verify();
+		
 	}
 
 	@Test
@@ -147,8 +137,6 @@ public class PersonCRUDControllerTest {
 		ArrayList<Person> listNew = (ArrayList<Person>) personRepository.findAll();
 
 		assertThat(list).isEqualTo(listNew);
-
-		EqualsVerifier.forClass(PersonCRUDController.class).withRedefinedSuperclass()
-				.suppress(Warning.STRICT_INHERITANCE).suppress(Warning.NONFINAL_FIELDS).verify();
+		
 	}
 }
